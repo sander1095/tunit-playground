@@ -8,7 +8,6 @@ using CliWrap;
 
 BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
 
-
 public class RuntimeBenchmarks : BenchmarkBase
 {
     // [Benchmark]
@@ -27,6 +26,16 @@ public class RuntimeBenchmarks : BenchmarkBase
         await Cli.Wrap("dotnet")
             .WithArguments(["run", "--no-build", "-c", "Release", "--framework", Framework])
             .WithWorkingDirectory(UnitPath)
+            .WithStandardOutputPipe(PipeTarget.ToStream(_outputStream))
+            .ExecuteAsync();
+    }
+
+    [Benchmark]
+    public async Task XUnit()
+    {
+        await Cli.Wrap("dotnet")
+            .WithArguments(["test", "--no-build", "-c", "Release", "--framework", Framework])
+            .WithWorkingDirectory(XUnitPath)
             .WithStandardOutputPipe(PipeTarget.ToStream(_outputStream))
             .ExecuteAsync();
     }

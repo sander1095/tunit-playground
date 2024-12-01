@@ -6,23 +6,25 @@ using BenchmarkDotNet.Running;
 
 using CliWrap;
 
-BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args);
+BenchmarkRunner.Run(typeof(Program).Assembly);
 
 public class RuntimeBenchmarks : BenchmarkBase
 {
-    // [Benchmark]
-    // [BenchmarkCategory("Runtime")]
-    // public async Task TUnit_AOT()
-    // {
-    //     await Cli.Wrap(Path.Combine(UnitPath, $"aot-publish-{Framework.Replace(".0", "")}", GetExecutableFileName()))
-    //         .WithArguments(["--treenode-filter", $"/*/*/{ClassName}/*"])
-    //         .WithStandardOutputPipe(PipeTarget.ToStream(OutputStream))
-    //         .ExecuteAsync();
-    // }
+    [Benchmark]
+    public async Task TUnit_AOT()
+    {
+        // Build the TUnit project using `dotnet publish -c Release --framework net9.0 --output aot-publish-net9 --property:Aot=true --runtime win-x64`
+        // Change the runtime to your desired platform!
+        await Cli.Wrap(Path.Combine(UnitPath, $"aot-publish-{Framework.Replace(".0", "")}", GetExecutableFileName()))
+            .WithStandardOutputPipe(PipeTarget.ToStream(_outputStream))
+            .ExecuteAsync();
+    }
 
     [Benchmark]
     public async Task TUnit()
     {
+        // Build the TUnit project using `dotnet build -c Release --framework net9.0`
+        // Change the runtime to your desired platform!
         await Cli.Wrap("dotnet")
             .WithArguments(["run", "--no-build", "-c", "Release", "--framework", Framework])
             .WithWorkingDirectory(UnitPath)
@@ -33,6 +35,8 @@ public class RuntimeBenchmarks : BenchmarkBase
     [Benchmark]
     public async Task XUnit()
     {
+        // Build the XUnit project using `dotnet build -c Release --framework net9.0`
+        // Change the runtime to your desired platform!
         await Cli.Wrap("dotnet")
             .WithArguments(["test", "--no-build", "-c", "Release", "--framework", Framework])
             .WithWorkingDirectory(XUnitPath)
@@ -41,7 +45,6 @@ public class RuntimeBenchmarks : BenchmarkBase
     }
 }
 
-[MarkdownExporterAttribute.GitHub]
 [SimpleJob(RuntimeMoniker.Net90)]
 public class BenchmarkBase
 {
@@ -69,8 +72,8 @@ public class BenchmarkBase
         return Path.Combine(folder.FullName, name);
     }
 
-    // protected string GetExecutableFileName()
-    // {
-    //     return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "TUnitTimer.exe" : "TUnitTimer";
-    // }
+    protected string GetExecutableFileName()
+    {
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "SampleProject.TUnit.exe" : "SampleProject.TUnit.exe";
+    }
 }

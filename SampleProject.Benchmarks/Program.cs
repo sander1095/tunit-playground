@@ -38,7 +38,7 @@ public class BenchmarkBase
 {
     protected readonly Stream _outputStream = Console.OpenStandardOutput();
 
-    protected static readonly string UnitPath = GetProjectPath("SampleProject.Tests");
+    protected static readonly string UnitPath = GetProjectPath("SampleProject.TUnit");
     protected static readonly string XUnitPath = GetProjectPath("SampleProject.XUnit");
 
     protected static readonly string Framework = GetFramework();

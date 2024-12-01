@@ -24,7 +24,6 @@ public class RuntimeBenchmarks : BenchmarkBase
     public async Task TUnit()
     {
         // Build the TUnit project using `dotnet build -c Release --framework net9.0`
-        // Change the runtime to your desired platform!
         await Cli.Wrap("dotnet")
             .WithArguments(["run", "--no-build", "-c", "Release", "--framework", Framework])
             .WithWorkingDirectory(UnitPath)
@@ -36,7 +35,6 @@ public class RuntimeBenchmarks : BenchmarkBase
     public async Task XUnit()
     {
         // Build the XUnit project using `dotnet build -c Release --framework net9.0`
-        // Change the runtime to your desired platform!
         await Cli.Wrap("dotnet")
             .WithArguments(["test", "--no-build", "-c", "Release", "--framework", Framework])
             .WithWorkingDirectory(XUnitPath)

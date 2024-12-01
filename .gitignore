@@ -3,6 +3,10 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# Remove AOT benchmark files
+SampleProject.TUnit/aot-publish-net9/*
+
+
 # dotenv files
 .env
 

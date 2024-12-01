@@ -57,7 +57,7 @@ public class BenchmarkBase
             folder = folder.Parent!;
         }
 
-        return Path.Combine(folder.FullName, name, name);
+        return Path.Combine(folder.FullName, name);
     }
 
     // protected string GetExecutableFileName()

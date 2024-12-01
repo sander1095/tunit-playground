@@ -1,11 +1,8 @@
 namespace SampleProject.Tests;
-
-using TUnit;
-
 public class CalculatorTests
 {
     [Test]
-    public void Add_WhenCalled_ReturnsTheSumOfArguments()
+    public async Task Add_WhenCalled_ReturnsTheSumOfArguments()
     {
         // Arrange
         var calculator = new Calculator();
@@ -14,6 +11,19 @@ public class CalculatorTests
         var result = calculator.Add(1, 2);
 
         // Assert
-        Assert.Equals(3, result);
+        await Assert.That(result).IsEqualTo(3);
+    }
+
+    [Test]
+    public async Task Add_WhenOverflowing_ReturnsIntMinValue()
+    {
+        // Arrange
+        var calculator = new Calculator();
+
+        // Act
+        var result = calculator.Add(int.MaxValue, 1);
+
+        // Assert
+        await Assert.That(result).IsEqualTo(int.MinValue);
     }
 }

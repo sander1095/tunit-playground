@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject.Tests", "Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject", "SampleProject\SampleProject.csproj", "{C2023593-E06A-4860-B27E-0D0EFE1C2257}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject.XUnit", "SampleProject.XUnit\SampleProject.XUnit.csproj", "{52362621-4C67-4829-A1FD-9F7FD6B3C173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C2023593-E06A-4860-B27E-0D0EFE1C2257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2023593-E06A-4860-B27E-0D0EFE1C2257}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2023593-E06A-4860-B27E-0D0EFE1C2257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52362621-4C67-4829-A1FD-9F7FD6B3C173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52362621-4C67-4829-A1FD-9F7FD6B3C173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52362621-4C67-4829-A1FD-9F7FD6B3C173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52362621-4C67-4829-A1FD-9F7FD6B3C173}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

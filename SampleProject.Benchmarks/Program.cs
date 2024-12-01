@@ -74,6 +74,6 @@ public class BenchmarkBase
 
     protected string GetExecutableFileName()
     {
-        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "SampleProject.TUnit.exe" : "SampleProject.TUnit.exe";
+        return RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "SampleProject.TUnit.exe" : "SampleProject.TUnit";
     }
 }

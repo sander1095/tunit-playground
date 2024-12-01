@@ -1,9 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject.Tests", "SampleProject.Tests\SampleProject.Tests.csproj", "{1AC88754-6772-4707-993B-481C8837D8B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject.TUnit", "SampleProject.TUnit\SampleProject.TUnit.csproj", "{1AC88754-6772-4707-993B-481C8837D8B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProject", "SampleProject\SampleProject.csproj", "{C2023593-E06A-4860-B27E-0D0EFE1C2257}"
 EndProject

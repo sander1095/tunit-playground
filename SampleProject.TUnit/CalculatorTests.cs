@@ -1,4 +1,4 @@
-namespace SampleProject.Tests;
+namespace SampleProject.TUnit;
 public class CalculatorTests
 {
     [Test]
